@@ -25,4 +25,8 @@ describe('String Calculator', () => {
     expect(add('//;\n1;2')).toBe(3);
   });
 
+  it('should handle multiple numbers with custom delimiter of mutiple chars', () => {
+    expect(add('//[***]\n1***2***3')).toBe(6);
+  });
+
 });
