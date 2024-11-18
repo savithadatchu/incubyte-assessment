@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>String Calculator</h1>
+        <h1 className="title">String Calculator</h1>
         <textarea
           value={input}
           className="input-field"
@@ -34,7 +34,7 @@ function App() {
           placeholder="Enter numbers here"
         />
         <button className="add-button" onClick={handleCalculate}>Calculate</button>
-        {result !== null && <h2>Result: {result}</h2>}
+        {result !== null && <h2 className="result">Result: {result}</h2>}
         {error && <h2 className="error">{error}</h2>}
       </div>
     </div>
