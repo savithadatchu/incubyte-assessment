@@ -27,6 +27,11 @@ export function add(numbers) {
     });
     numArray = numArray.map(Number);
 
-    return numArray.reduce((sum, num) => sum + num, 0);
+    const negatives = numArray.filter(num => num < 0);
+    if (negatives.length > 0) {
+      throw new Error("negatives not allowed " + negatives.join(", "));
+    }
+    
+    return numArray.filter(num => num <= 1000).reduce((sum, num) => sum + num, 0);
 }
   
