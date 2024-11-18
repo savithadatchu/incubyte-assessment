@@ -25,15 +25,18 @@ function App() {
 
   return (
     <div className="App">
-      <h1>String Calculator</h1>
-      <textarea
-        value={input}
-        onChange={handleChange}
-        placeholder="Enter numbers here"
-      />
-      <button className="add-button" onClick={handleCalculate}>Calculate</button>
-      {result !== null && <h2>Result: {result}</h2>}
-      {error && <h2 style={{ color: 'red' }}>{error}</h2>}
+      <div className="container">
+        <h1>String Calculator</h1>
+        <textarea
+          value={input}
+          className="input-field"
+          onChange={handleChange}
+          placeholder="Enter numbers here"
+        />
+        <button className="add-button" onClick={handleCalculate}>Calculate</button>
+        {result !== null && <h2>Result: {result}</h2>}
+        {error && <h2 className="error">{error}</h2>}
+      </div>
     </div>
   );
 }
