@@ -9,13 +9,22 @@ export function add(numbers) {
         const delimiterEndIndex = numbers.indexOf("\n");
         const delimiterPart = numbers.slice(2, delimiterEndIndex);
         
+        if (delimiterPart.startsWith("[") && delimiterPart.endsWith("]")) {
+            delimiters = delimiterPart.slice(1, -1).split("][");
+        } else {
         delimiters = [delimiterPart];
+        }
     
         numString = numbers.slice(delimiterEndIndex + 1);
     }
  
     let numArray = numString.split("\n");
-    numArray = numArray.flatMap(item => item.split(delimiters[0]));
+    numArray = numArray.flatMap(item  => {
+        for (let delimiter of delimiters) {
+          item = item.split(delimiter).join(",");
+        }
+        return item.split(",");
+    });
     numArray = numArray.map(Number);
 
     return numArray.reduce((sum, num) => sum + num, 0);
