@@ -21,4 +21,8 @@ describe('String Calculator', () => {
     expect(add('1\n2,3')).toBe(6);
   });
 
+  it('should handle multiple numbers with custom delimiter of single char ', () => {
+    expect(add('//;\n1;2')).toBe(3);
+  });
+
 });
